@@ -4,8 +4,7 @@ from utils import validate_file,load_csv,summarize_csv
 allowed_extensions = ['.csv']
 
 def print_summary(summary,csv_path):
-    path = Path(csv_path)
-    file = path.name
+    file = Path(csv_path).name
     print(f"File:{file}")
     # if this functioon ran means file is valid
     print("Status: Valid")
@@ -14,7 +13,7 @@ def print_summary(summary,csv_path):
     print("Columns:")
     for cols in summary['column_names']:
         print(f'-{cols}')
-    print("Missing Values:")
+    print(f"Missing Values:{summary['missing_values'].items}")
     for column,count in summary['missing_values']:
         print(f"{column}:{count}")
 def main():
