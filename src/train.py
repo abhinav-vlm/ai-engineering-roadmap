@@ -9,3 +9,7 @@ print(__file__)
 
 print("\nPython Search Path:")
 print(sys.path)
+
+# x = (3,4)
+# a,b = x
+# print(a,b)

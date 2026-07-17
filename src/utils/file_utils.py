@@ -12,6 +12,7 @@ def validate_file(file_path:str|Path,allowed_extensions:list[str])->bool:
    path = Path(file_path)
    if not path.exists():
       return False
-   if path.suffix.lower() not in allowed_extensions:
+   allowed = {ext.lower() for ext in allowed_extensions}
+   if path.suffix.lower() not in allowed:
       return False
    return True

@@ -1,9 +1,37 @@
 from pathlib import Path
-from utils import validate_file
-BASE_DIR = Path(__file__).resolve().parent.parent
-csv_path = BASE_DIR/'data'/'raw'/'sample.csv'
+from utils import validate_file,load_csv,summarize_csv
+
 allowed_extensions = ['.csv']
 
-if not validate_file(csv_path,allowed_extensions):
-    print("Invalid File")
-    exit()
+def print_summary(summary,csv_path):
+    path = Path(csv_path)
+    file = path.name
+    print(f"File:{file}")
+    # if this functioon ran means file is valid
+    print("Status: Valid")
+    print(f"Rows:{summary['rows']}")
+    print(f"Columns:{summary['columns']}")
+    print("Columns:")
+    for cols in summary['column_names']:
+        print(f'-{cols}')
+    print("Missing Values:")
+    for column,count in summary['missing_values']:
+        print(f"{column}:{count}")
+def main():
+    # Build csv path
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    csv_path = BASE_DIR/'data'/'raw'/'sample.csv'
+
+    # Validate
+    if not validate_file(csv_path,allowed_extensions):
+       print("Invalid File")
+       exit()
+
+    # Load CSV
+    df = load_csv(csv_path)
+
+    # Summarize CSV
+    summary = summarize_csv(df)
+
+    # Print Summary
+    print_summary(summary,csv_path)
