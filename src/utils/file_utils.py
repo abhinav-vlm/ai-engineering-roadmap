@@ -1,3 +1,4 @@
+from PIL.Image import logger
 from pathlib import Path
 def validate_file(file_path:str|Path,allowed_extensions:list[str])->bool:
    '''
@@ -11,8 +12,10 @@ def validate_file(file_path:str|Path,allowed_extensions:list[str])->bool:
     # File Existence CheckPoint
    path = Path(file_path)
    if not path.exists():
+      logger.error("Validation Failed: File does not exist.",path)
       return False
    allowed = {ext.lower() for ext in allowed_extensions}
    if path.suffix.lower() not in allowed:
+      logger.error("Validation Failed: Unsupported File extension.",path.suffix)
       return False
-   return True
+   return True 

@@ -2,12 +2,16 @@
 - Building production-grade AI Engineering skills from scratch
 
 ## Why this repository?
+
 - This repository documents my journey from an ML Engineer to a Production AI Engineer
 - The goal is not only to train models but to build production-ready AI systems using modern software engineering practices
+- Learning software engineering principles, clean architecture and production practices
 
 ## Learning Goals
+
 - Git & GitHub
 - Python Software Engineering
+- Testing
 - FastAPI
 - Docker
 - PostgreSQL
@@ -16,10 +20,11 @@
 - Cloud Deployment
 - LLM Engineering
 
-##  Repository Structure
+## Repository Structure
+
 - assets -> Images,Diagrams and other static resources
-- configs -> Configuration files for application and services
-- data -> raw and processed data used throughout the project
+- configs -> Centralized application configuration for application and services
+- data -> raw, external and processed data used throughout the project
 - docs -> Project Documentation,architecture and design notes
 - models -> saved trained models and model artifacts
 - notebooks -> Research notebooks used for experimentation and analysis
@@ -34,6 +39,8 @@
 
 - [x] Git Fundamentals
 - [x] Repository Structure
+- [x] Software Engineering Fundamentals
+- [x] Configuration & Logging
 - [ ] Python Packaging
 - [ ] FastAPI
 - [ ] Docker
@@ -46,18 +53,19 @@
 
 Currently learning:
 
-- Git
+- Python Packaging
 - Software Engineering
 - Project Structure
 
 Next:
 
-- Python Packaging
+- Testing
 - FastAPI
 
 ## Tech Stack
+
 - Python
-- FastApi
+- FastAPI
 - Docker
 - PostgreSQL
 - Git
@@ -66,6 +74,25 @@ Next:
 - OpenAI API
 
 ## Planned Projects
+
 - AI Resume Intelligence Platform
 - LLM Knowledge Assistant
 - Production Recommendation system
+
+## Engineering Principles
+
+- Single Responsibility Principle
+- Separation of concerns
+- DRY (Don't Repeat Yourself)
+- Fail Fast
+- Single Source of Truth
+- Configuration over Hardcoding
+
+## Completed Milestones
+
+- Day 1: Git & Repository Setup
+- Day 2: Project Structure
+- Day 3: Utility Functions
+- Day 4: CSV Validation
+- Day 5: CSV Processing & Refactoring
+- Day 6: Configuration & Logging
