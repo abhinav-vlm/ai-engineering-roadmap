@@ -1,11 +1,18 @@
+from configs.logging_config import logger
 import pandas as pd 
 from pathlib import Path
 
-csv_path = Path(csv_path)
-
 def load_csv(csv_path:str|Path)->pd.DataFrame:
-    df = pd.read_csv(csv_path)
-    return df
+    csv_path = Path(csv_path) 
+    try:
+       df = pd.read_csv(csv_path)
+       return df
+    except FileNotFoundError:
+        logger.error("CSV file not found: %s",csv_path)
+        raise
+    except TypeError:
+        logger.error("csv_path must be a string or Path object")
+        raise
     
 def summarize_csv(df:pd.DataFrame)->dict:
     rows,columns = df.shape
