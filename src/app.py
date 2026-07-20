@@ -1,6 +1,6 @@
 from pathlib import Path
 from utils import validate_file,load_csv,summarize_csv
-from configs import (RAW_DATA_DIR,ALLOWED_EXTENSIONS)
+from configs import RAW_DATA_DIR
 
 # Build csv path
 csv_path = RAW_DATA_DIR / 'sample.csv'
@@ -20,7 +20,7 @@ def print_summary(summary,csv_path):
         print(f"{column}:{count}")
 def main():
     # Validate
-    if not validate_file(csv_path,ALLOWED_EXTENSIONS):
+    if not validate_file(csv_path):
        print("Invalid File")
        exit()
 
