@@ -7,10 +7,8 @@ def validate_file(file_path:str|Path)->bool:
    Validate a file before processing
    Args:
       file_path: Path of the uploaded file
-      allowed_extensions: List of allowed file extensions.
    Returns:
       True if the file passes validation.
-
    Raises:
       FileNotFoundError: If the file does not exist.
       ValueError: If the file extension is not allowed.

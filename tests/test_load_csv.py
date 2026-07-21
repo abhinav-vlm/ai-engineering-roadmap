@@ -1,6 +1,6 @@
 import pytest
 from pathlib import Path
-from src.utils.csv_utils import load_csv
+from src.utils import load_csv
 from configs.config import RAW_DATA_DIR
 
 def test_load_csv_valid():

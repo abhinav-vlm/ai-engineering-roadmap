@@ -1,6 +1,6 @@
 import pytest
 from pathlib import Path
-from src.utils.file_utils import validate_file
+from src.utils import validate_file
 from configs.config import RAW_DATA_DIR
 
 def test_validate_file_valid_csv():
