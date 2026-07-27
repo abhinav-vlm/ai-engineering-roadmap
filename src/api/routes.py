@@ -1,15 +1,9 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi import APIRouter
+from schemas.battery import Battery,BatteryResponse
 
-app = FastAPI()
+router = APIRouter()
 
-class Battery(BaseModel):
-    battery_id:int | None = None
-    voltage:float | None = None
-    current:float | None = None
-    temperature:float | None = None
-
-@app.get('/')
+@router.get('/')
 def home():
     return {"message":"Battery Digital Twin Testing"}
 
@@ -20,32 +14,32 @@ def home():
 #         "author":"Harshit"
 #     }
 
-@app.get("/about")
+@router.get("/about")
 def about():
     return {
         "project":"Battery Digital Twin",
         "author":"Harshit"
     }
 
-@app.get("/battery/{battery_id}")
+@router.get("/battery/{battery_id}")
 def get_battery(battery_id:int):
     return {'battery_id':battery_id}
 
 # query 
-@app.put("/battery/{battery_id}")
+@router.put("/battery/{battery_id}")
 def update_battery(battery_id:int,battery:Battery):
     return {
         'message':f'Battery {battery_id} updated successfully',
         'battery':battery
     }
 
-@app.delete("/battery/{battery_id}")
+@router.delete("/battery/{battery_id}")
 def delete_battery(battery_id:int):
     return {
         'message':f'Battery {battery_id} deleted successfully'
     }
 
-@app.post("/battery")
+@router.post("/battery",response_model=BatteryResponse,status_code=201)
 def create_battery(battery:Battery):
     return battery
     
