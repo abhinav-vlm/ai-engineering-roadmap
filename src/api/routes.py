@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from schemas.battery import Battery,BatteryResponse
+from services.battery_service import predict_soh
 
 router = APIRouter()
 
@@ -42,4 +43,7 @@ def delete_battery(battery_id:int):
 @router.post("/battery",response_model=BatteryResponse,status_code=201)
 def create_battery(battery:Battery):
     return battery
-    
+
+@router.get("/predict",response_model=BatteryResponse,status_code=201)
+def predict_soh():
+    return predict_soh()
